@@ -55,3 +55,23 @@ Prediction
 ├── requirements.txt
 ├── styles.css
 └── train.py
+
+## installation
+git clone https://github.com/angelcyril187-lab/skin-cancer-detection-xai.git
+
+pip install -r requirements.txt
+
+## run the project
+python -m uvicorn main:app --reload
+
+## frontend
+index.html
+
+##Author
+
+Angel Cyril
+
+B.Tech — Artificial Intelligence & Data Science
+
+GitHub:
+https://github.com/angelcyril187-lab
