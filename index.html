@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skin Cancer AI Analysis</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <h1>🔍 Skin Cancer AI Analysis</h1>
+        <p>Advanced Dermoscopy Classification with Explainability</p>
+    </div>
+</header>
+
+<main class="container">
+    
+    <!-- Upload Section -->
+    <section class="upload-section">
+        <div class="drop-zone" id="drop-zone">
+            <span class="drop-zone__prompt">Drag & Drop Image Here<br>or Click to Upload</span>
+            <input type="file" name="myFile" class="drop-zone__input" id="file-input" accept="image/*">
+        </div>
+        <div class="preview-container" id="preview-container" style="display: none;">
+            <img id="image-preview" src="#" alt="Image Preview">
+            <button id="analyze-btn" class="btn-primary">Step 2: Run AI Analysis</button>
+        </div>
+    </section>
+
+    <!-- Loading -->
+    <div id="loading" style="display: none;">
+        <div class="spinner"></div>
+        <p>Analyzing Lesion Structure...</p>
+        <p class="sub-text">Running Classifiers & Integrated Gradients</p>
+    </div>
+
+    <!-- Results Section -->
+    <div id="results" style="display: none;">
+        
+        <!-- Safety Banner -->
+        <div class="safety-banner">
+            ⚠️ <strong>Disclaimer:</strong> This tool is for educational purposes only. It is not a substitute for professional medical advice.
+        </div>
+
+        <!-- Top Card: Prediction -->
+        <div class="result-card">
+            <div class="prediction-header">
+                <div>
+                    <h2>Primary Prediction</h2>
+                    <h1 id="pred-class-name">Melanoma</h1>
+                </div>
+                <div class="risk-badge" id="risk-badge">High Risk</div>
+            </div>
+            <div class="confidence-bar-container">
+                <span>Confidence: <strong id="confidence-val">85%</strong></span>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="conf-bar-fill" style="width: 85%;"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Charts & Concepts Grid -->
+        <div class="grid-2">
+            <!-- Probabilities -->
+            <div class="card">
+                <h3>Differential Diagnosis</h3>
+                <canvas id="probChart"></canvas>
+            </div>
+
+            <!-- Concepts -->
+            <div class="card">
+                <h3>ABCDE Visual Concepts</h3>
+                <div class="concepts-list" id="concepts-list">
+                    <!-- JS Injected -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Explainability -->
+        <div class="card" style="margin-top: 2rem;">
+            <h3>Explainability & Visualization</h3>
+            <p>Visualizing regions that influenced the AI decision.</p>
+            <div class="explainability-grid">
+                <div>
+                    <h4>Original ROI</h4>
+                    <img id="roi-img" class="explain-img">
+                </div>
+                <div>
+                    <h4>Grad-CAM</h4>
+                    <img id="gradcam-img" class="explain-img">
+                </div>
+                <div>
+                    <h4>Integrated Gradients</h4>
+                    <img id="ig-img" class="explain-img">
+                </div>
+            </div>
+        </div>
+
+        <!-- AI Report -->
+        <div class="card" style="margin-top: 2rem;">
+            <h3>📝 AI Analysis Report</h3>
+            <div class="report-box" id="ai-report-text">
+                <!-- Text here -->
+            </div>
+        </div>
+
+    </div>
+
+</main>
+
+<footer>
+    <p>Using ResNet50 | Grad-CAM | Integrated Gradients</p>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,203 @@
+:root {
+    --primary: #2563eb;
+    --primary-hover: #1d4ed8;
+    --bg: #f3f4f6;
+    --card-bg: #ffffff;
+    --text: #1f2937;
+    --text-muted: #6b7280;
+    --risk-high: #ef4444;
+    --risk-med: #f59e0b;
+    --risk-low: #10b981;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+    margin: 0;
+    padding-bottom: 4rem;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+header {
+    background: var(--card-bg);
+    padding: 1.5rem 0;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+h1 { margin: 0; font-size: 1.5rem; }
+p { margin: 0.5rem 0 0; color: var(--text-muted); }
+
+/* Upload */
+.upload-section {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.drop-zone {
+    max-width: 500px;
+    margin: 0 auto;
+    height: 200px;
+    padding: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border: 2px dashed #cbd5e1;
+    border-radius: 10px;
+    cursor: pointer;
+    background: #fff;
+    transition: 0.2s;
+}
+
+.drop-zone:hover { border-color: var(--primary); }
+
+.drop-zone__input { display: none; }
+
+.preview-container {
+    margin-top: 1rem;
+    text-align: center;
+}
+
+#image-preview {
+    max-width: 300px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.btn-primary {
+    display: block;
+    margin: 1rem auto;
+    padding: 0.75rem 2rem;
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+.btn-primary:hover { background: var(--primary-hover); }
+
+/* Results */
+.card {
+    background: var(--card-bg);
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.result-card {
+    background: var(--card-bg);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+    border-left: 6px solid var(--primary);
+}
+
+.prediction-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.risk-badge {
+    padding: 0.5rem 1rem;
+    border-radius: 999px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    color: white;
+}
+
+.risk-high { background: var(--risk-high); }
+.risk-med { background: var(--risk-med); }
+.risk-low { background: var(--risk-low); }
+
+.progress-bar {
+    height: 10px;
+    background: #e5e7eb;
+    border-radius: 99px;
+    overflow: hidden;
+    margin-top: 0.5rem;
+}
+.progress-fill {
+    height: 100%;
+    background: var(--primary);
+    transition: width 1s ease-out;
+}
+
+.grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+@media (max-width: 768px) {
+    .grid-2 { grid-template-columns: 1fr; }
+}
+
+/* Concepts */
+.concept-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid #f3f4f6;
+}
+.concept-val { font-weight: 600; }
+.level-High { color: var(--risk-high); }
+.level-Medium { color: var(--risk-med); }
+.level-Low { color: var(--risk-low); }
+
+/* Explainability */
+.explainability-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-top: 1rem;
+}
+.explain-img {
+    width: 100%;
+    border-radius: 8px;
+    border: 1px solid #e5e7eb;
+}
+
+/* Loading */
+.spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid var(--primary);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 2rem auto;
+}
+#loading { text-align: center; }
+
+@keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+.safety-banner {
+    background: #fff3cd;
+    color: #856404;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    border: 1px solid #ffeeba;
+}
+
+.report-box {
+    background: #f8fafc;
+    padding: 1rem;
+    border-radius: 8px;
+    white-space: pre-line;
+    line-height: 1.6;
+}
